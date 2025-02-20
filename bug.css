@@ -1,0 +1,21 @@
+The following CSS code has an uncommon error related to the specificity of selectors:
+
+```css
+div {
+  color: blue;
+}
+
+.container div {
+  color: red; 
+}
+
+#my-id {
+  color: green;
+}
+
+#my-id.container {
+  color: purple;
+}
+```
+
+The intended behavior is that `#my-id.container` should override other selectors due to its higher specificity. However, if the element with id "my-id" is *not* within an element with class "container", the selector `#my-id.container` will have no effect.
