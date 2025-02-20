@@ -1,0 +1,44 @@
+The solution depends on the intended behavior when the ID doesn't match the class.
+
+**Solution 1: Separate Rules**
+If you need different styling for `#my-id` and `#my-id.container` when the class "container" exists:
+
+```css
+div {
+  color: blue;
+}
+
+.container div {
+  color: red; 
+}
+
+#my-id {
+  color: green;
+}
+
+#my-id.container {
+  color: purple;
+}
+```
+
+**Solution 2: Use a more specific selector for the case when both conditions are met**
+If `#my-id` with the class "container" requires specific styling:
+
+```css
+div {
+  color: blue;
+}
+
+.container div {
+  color: red; 
+}
+
+#my-id {
+  color: green;
+}
+
+.container #my-id {
+  color: purple; /*More specific selector*/
+}
+```
+Choose the solution that aligns with your desired styling and behavior.
